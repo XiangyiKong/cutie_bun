@@ -1,3 +1,4 @@
+//the SocialNet bootstrapper
 require.config({
   paths: {
     jQuery: '/js/libs/jquery',
