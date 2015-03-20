@@ -30,5 +30,9 @@ module.exports = function(config, mongoose, nodemailer) {
     var shaSum = crypto.createHash('sha256');
     shaSum.update(newpassword);
     var hashedPassword = shaSum.digest('hex');
-    Account.update({_id:accountId}
+    Account.update({_id:accountId}, {$set: {password:hashedPassword}}, {upsert: false}, 
+      function changePasswordCallback(err) {
+        console.log('Change password done for account' + accountId);
+      });
+  };
     
