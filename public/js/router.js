@@ -10,7 +10,9 @@ define (['views/index', 'views/register', 'views/login', 'views/forgotpassword']
               "forgotpassword": "forgotpassword"
         },
         
+        // Display each view by calling its render function
         changeView: function(view) {
+              // the old view stop listening to web page events through the undeLegateEvents
               if( null != this.currentView ) {
                     this.currentView.undelegateEvents();
               } 
